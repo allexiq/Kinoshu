@@ -1,0 +1,168 @@
+/* Reset simplu */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body și fonturi */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #222;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+header nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+}
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main container */
+main {
+    padding: 20px;
+}
+
+/* Container carduri filme */
+.filme-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* spațiu între carduri */
+    justify-content: center; /* centrarea cardurilor */
+}
+
+/* Card film */
+.film-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 200px;       /* lățimea cardului */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    text-align: center;
+    transition: transform 0.2s;
+}
+.film-card:hover {
+    transform: translateY(-5px); /* efect hover */
+}
+
+/* Imagine poster */
+.film-card img {
+    width: 100%;           /* ocupă toată lățimea cardului */
+    height: 300px;         /* înălțime fixă */
+    object-fit: cover;     /* păstrează proporțiile și decupează excess */
+    display: block;
+}
+
+/* Titlu film */
+.film-card h3 {
+    font-size: 18px;
+    margin: 10px 0 5px 0;
+}
+
+/* Detalii film */
+.film-card p {
+    font-size: 14px;
+    margin: 3px 0;
+}
+
+/* Buton detalii */
+.film-card a {
+    display: inline-block;
+    margin: 10px 0 15px 0;
+    padding: 8px 12px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+}
+.film-card a:hover {
+    background: #0056b3;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #222;
+    color: #fff;
+    margin-top: 30px;
+}
+
+/* --- DESPRE PAGE --- */
+.despre-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    background: transparent;
+    padding: 30px;
+}
+
+.despre-container h2 {
+    text-align: center;
+    font-size: 36px;
+    color: #a7b9ff;
+    text-shadow: 0 0 10px rgba(0, 47, 255, 0.7);
+    margin-bottom: 40px;
+}
+
+.info-box {
+    background: rgba(40, 40, 40, 0.9);
+    border-left: 4px solid #615eff;
+    border-radius: 10px;
+    padding: 25px 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 20px rgba(0, 47, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(0, 47, 255, 0.3);
+}
+
+.info-box h3 {
+    color: #ff6f6f;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.info-box p, .info-box li {
+    color: #dcdcee;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.info-box code {
+    background: rgba(255,255,255,0.08);
+    padding: 2px 6px;
+    border-radius: 5px;
+    color: #8fb3ff;
+}
+
+.schema-list ul, .baza-list, .flux {
+    margin-left: 20px;
+}
+
+.schema-list li, .baza-list li, .flux li {
+    margin-bottom: 8px;
+}
+
+.flux li::marker {
+    color: #ff6f6f;
+}
+
+.final-box {
+    background: rgba(60, 60, 60, 0.9);
+    border-left: 4px solid #ff6f6f;
+    text-align: center;
+}
