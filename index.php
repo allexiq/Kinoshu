@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['username'])){
+    header("Location: login.php");
+    exit;
+}
 $filme = [
     [
         "titlu" => "Inception",
@@ -103,9 +108,7 @@ $filme_premiera = [
     ["titlu"=>"Haunted Mansion", "imagine"=>"images/hauntedmansion.jpg"],
     ["titlu"=>"Wish", "imagine"=>"images/wish.jpg"]
 ];
-
 ?>
-
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -116,19 +119,29 @@ $filme_premiera = [
 </head>
 <body>
     <header>
-        <h1>Kinoshu</h1>
-        <nav>
-            <a href="index.php">Acasă</a>
-            <a href="#">Top Filme</a>
-            <a href="#">Genuri</a>
-            <a href="prezentare.php">Despre</a>
-            <a href="#">Contact</a>
-        </nav>
-        <form action="cauta.php" method="GET" class="search-form">
+    <h1>Kinoshu</h1>
+    <nav>
+        <a href="index.php">Acasă</a>
+        <a href="#">Top Filme</a>
+        <a href="#">Genuri</a>
+        <a href="prezentare.php">Despre</a> 
+        <a href="#">Contact</a>
+    </nav>
+
+    <form action="cauta.php" method="GET" class="search-form">
         <input type="text" name="q" placeholder="Caută..." required>
         <button type="submit">🔍︎</button>
     </form>
-    </header>
+
+    <div class="header-right">
+        <?php if(isset($_SESSION['username'])): ?>
+            <a href="cont.php" class="cont-button">Contul meu ✦ <?php echo htmlspecialchars($_SESSION['username']); ?></a>
+            <a href="logout.php" class="logout-button">Logout</a>
+        <?php else: ?>
+            <a href="login.php" class="login-button">Login</a>
+        <?php endif; ?>
+    </div>
+</header>
 
     <main>
         <h2>Filme populare</h2>

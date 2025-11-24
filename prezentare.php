@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -13,9 +16,23 @@
         <a href="index.php">Acasă</a>
         <a href="#">Top Filme</a>
         <a href="#">Genuri</a>
-        <a href="prezentare.php">Despre</a>
+        <a href="prezentare.php">Despre</a> 
         <a href="#">Contact</a>
     </nav>
+
+    <form action="cauta.php" method="GET" class="search-form">
+        <input type="text" name="q" placeholder="Caută..." required>
+        <button type="submit">🔍︎</button>
+    </form>
+
+    <div class="header-right">
+        <?php if(isset($_SESSION['username'])): ?>
+            <a href="cont.php" class="cont-button">Contul meu ✦ <?php echo htmlspecialchars($_SESSION['username']); ?></a>
+            <a href="logout.php" class="logout-button">Logout</a>
+        <?php else: ?>
+            <a href="login.php" class="login-button">Login</a>
+        <?php endif; ?>
+    </div>
 </header>
 
 <main>
@@ -42,8 +59,8 @@
             <ul class="schema-list">
                 <li><strong>Roluri principale:</strong>
                     <ul>
-                        <li>🧑‍💻 <strong>Administrator</strong> – adaugă filme, actualizează stocurile și gestionează utilizatorii.</li>
-                        <li>🎟️ <strong>Utilizator</strong> – poate vizualiza, cumpăra și rezerva filme.</li>
+                        <li>✦  <strong>Administrator</strong> – adaugă filme, actualizează stocurile și gestionează utilizatorii.</li>
+                        <li>✦  <strong>Utilizator</strong> – poate vizualiza, cumpăra și rezerva filme.</li>
                     </ul>
                 </li>
 
@@ -176,7 +193,7 @@
 </main>
 
 <footer>
-    <p>&copy; 2025 Kinoshu - Cinematografie Online</p>
+    <p>&copy; 2025 Kinoshu</p>
 </footer>
 </body>
 </html>

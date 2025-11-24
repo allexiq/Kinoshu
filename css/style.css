@@ -7,98 +7,357 @@
 
 /* Body și fonturi */
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    background: #000;
+    /* fundal negru */
+    color: #fff;
 }
 
 /* Header */
 header {
-    background: #222;
-    color: #fff;
-    padding: 20px;
+    position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    font-family: 'Serif';
+    background: #111;
+    color: #615eff;
+    text-shadow:
+            1px 1px 2px rgb(254, 211, 211),
+            0 0 1em rgb(0, 47, 255),
+            0 0 0.2em rgb(229, 229, 255);
+    letter-spacing: 7px;
+    padding: 20px 40px;
     text-align: center;
+    background: linear-gradient(160deg, #210101 0%, #1b2735 50%, #090a0f 100%);
+    font-size: 30px;
+}
+.header-right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 header nav a {
-    color: #fff;
+    font-family: 'Arial';
+    color: #a7b9ff;
+    letter-spacing: 1px;
     margin: 0 15px;
+    text-shadow: none;
     text-decoration: none;
-}
-header nav a:hover {
-    text-decoration: underline;
+    font-weight: bold;
+    font-size: 18px;
 }
 
+header nav a:hover {
+    color:#dcdcee;
+}
+.cont-button,
+.logout-button {
+    padding: 8px 12px;
+    background: #7f7df4;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+    letter-spacing: 1px;
+    font-size: 20px;
+}
+
+.cont-button:hover,
+.logout-button:hover {
+    background: #c06d6d;
+}
 /* Main container */
 main {
     padding: 20px;
+    padding-top: 200px;
 }
 
-/* Container carduri filme */
+.filme-container-wrapper {
+    overflow: hidden;
+    background: #000;
+    padding: 20px;
+    position: relative;
+}
+
 .filme-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* spațiu între carduri */
-    justify-content: center; /* centrarea cardurilor */
+    gap: 20px;
 }
 
-/* Card film */
 .film-card {
-    background: #fff;
+    flex: 0 0 auto;
+    width: 200px;
+    background: #111;
     border-radius: 10px;
     overflow: hidden;
-    width: 200px;       /* lățimea cardului */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 0 15px #ff0000;
+    display: flex;
+    flex-direction: column;
+    /* card vertical */
+    justify-content: space-between;
+    /* distribuie spațiu între imagine+text și buton */
     text-align: center;
-    transition: transform 0.2s;
-}
-.film-card:hover {
-    transform: translateY(-5px); /* efect hover */
+    padding-bottom: 10px;
+    /* puțin spațiu jos pentru buton */
 }
 
-/* Imagine poster */
 .film-card img {
-    width: 100%;           /* ocupă toată lățimea cardului */
-    height: 300px;         /* înălțime fixă */
-    object-fit: cover;     /* păstrează proporțiile și decupează excess */
-    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-bottom: 2px solid #ff0000;
 }
 
-/* Titlu film */
-.film-card h3 {
-    font-size: 18px;
-    margin: 10px 0 5px 0;
-}
-
-/* Detalii film */
+.film-card h3,
 .film-card p {
-    font-size: 14px;
-    margin: 3px 0;
+    color: #add5f6;
+    margin: 5px 0;
 }
 
-/* Buton detalii */
+.film-card h3 {
+    color: #dff1ff;
+    text-shadow:
+            1px 1px 2px red,
+            0 0 1em blue,
+            0 0 0.2em blue;
+}
+
 .film-card a {
     display: inline-block;
-    margin: 10px 0 15px 0;
+    margin-top: auto;
+    /* mută butonul jos în card */
     padding: 8px 12px;
-    background: #007bff;
+    background: #7d0000;
     color: #fff;
     text-decoration: none;
     border-radius: 6px;
-    font-size: 14px;
-}
-.film-card a:hover {
-    background: #0056b3;
 }
 
+.film-card a:hover {
+    background: #ab0000;
+}
 /* Footer */
 footer {
     text-align: center;
     padding: 15px;
-    background: #222;
-    color: #fff;
+    background: #111;
+    color: #db0000;
     margin-top: 30px;
 }
+/* ======= PAGINA DE DETALII FILM ======= */
+.film-detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    background: linear-gradient(145deg, #090a0f, #1b2735);
+    color: #fff;
+    padding: 50px 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
+    max-width: 1000px;
+    margin: 50px auto;
+}
 
+.film-detail img {
+    width: 300px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid #ff0000;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+.film-info {
+    max-width: 500px;
+    line-height: 1.7;
+}
+
+.film-info h2 {
+    font-size: 2.2em;
+    color: #f5f5ff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px #0077ff;
+}
+
+.film-info p {
+    margin: 8px 0;
+    color: #c7d5ff;
+}
+
+.film-info strong {
+    color: #ffd700;
+}
+
+.descriere {
+    font-style: italic;
+    color: #ddd;
+    margin-top: 20px;
+}
+
+.pret {
+    margin-top: 15px;
+    font-size: 1.2em;
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.buton-actiune {
+    display: inline-block;
+    margin-top: 25px;
+    margin-right: 10px;
+    padding: 10px 18px;
+    background: #7d0000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.buton-actiune:hover {
+    background: #ab0000;
+    box-shadow: 0 0 15px #ff0000;
+}
+
+@media(max-width: 768px) {
+    .film-detail {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .film-detail img {
+        width: 80%;
+        height: auto;
+    }
+}
+/* ======= FORMULAR CĂUTARE ROTUND ======= */
+/* FORMULAR SEARCH UNIT CU BORDER ALBASTRU */
+.search-form {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 20px;
+    border: 2px solid #78b7ff;
+    /* border albastru pentru tot containerul */
+    border-radius: 50px;
+    /* rotunjire completă */
+    overflow: hidden;
+    /* să nu depășească border-ul */
+}
+
+.search-form input {
+    padding: 8px 15px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    flex: 1;
+    /* ocupă tot spațiul disponibil */
+}
+
+.search-form button {
+    padding: 8px 15px;
+    border: none;
+    background: #2e2d3e;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.search-form button:hover {
+    background: #131349;
+    box-shadow: 0 0 8px #4A90E2;
+}
+/* Pe mobil să ocupe tot spațiul */
+@media(max-width: 768px) {
+    .search-form {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .search-form input {
+        flex: 1;
+    }
+}
+/* Filme în Premieră */
+.premiere-filme {
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+.premiere-filme h2 {
+    color: #dff1ff;
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 24px;
+}
+
+/* Grid 6x5 */
+.film-grid-premiere {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+.film-grid-premiere .film-card {
+    width: 100%;
+    padding-top: 133.33%;
+    /* 3:4 proporție */
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.film-grid-premiere .film-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.film-grid-premiere .film-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #615eff;
+}
+
+/* Responsive */
+@media(max-width: 1440px) {
+    .film-grid-premiere {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media(max-width: 1200px) {
+    .film-grid-premiere {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media(max-width: 900px) {
+    .film-grid-premiere {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    .film-grid-premiere {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 400px) {
+    .film-grid-premiere {
+        grid-template-columns: 1fr;
+    }
+}
 /* --- DESPRE PAGE --- */
 .despre-container {
     max-width: 1000px;
@@ -136,24 +395,29 @@ footer {
     font-size: 22px;
 }
 
-.info-box p, .info-box li {
+.info-box p,
+.info-box li {
     color: #dcdcee;
     line-height: 1.6;
     font-size: 16px;
 }
 
 .info-box code {
-    background: rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
     padding: 2px 6px;
     border-radius: 5px;
     color: #8fb3ff;
 }
 
-.schema-list ul, .baza-list, .flux {
+.schema-list ul,
+.baza-list,
+.flux {
     margin-left: 20px;
 }
 
-.schema-list li, .baza-list li, .flux li {
+.schema-list li,
+.baza-list li,
+.flux li {
     margin-bottom: 8px;
 }
 
@@ -166,3 +430,4 @@ footer {
     border-left: 4px solid #ff6f6f;
     text-align: center;
 }
+/* --- Pagina de login/sign up --- */
